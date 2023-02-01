@@ -1,0 +1,6 @@
+-- How can you produce a list of facilities that charge a fee to members?
+-- Expected Results should have just 5 rows.
+
+SELECT name, membercost FROM cd.facilities
+WHERE membercost != 0
+LIMIT 5;
