@@ -1,0 +1,11 @@
+-- How can you produce a list of the start times for bookings by members named 'David Farrell'?
+-- Expected result is 34 rows of timestamps.
+
+SELECT bookings.starttime AS "start", 
+members.firstname, cd.members.surname
+FROM cd.members
+INNER JOIN cd.bookings ON
+cd.bookings.memid = cd.members.memid
+WHERE "firstname" LIKE 'David%' 
+AND "surname" LIKE 'Farrell%'
+ORDER BY bookings.starttime ASC;
