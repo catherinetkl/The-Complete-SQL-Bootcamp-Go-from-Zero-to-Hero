@@ -1,0 +1,11 @@
+-- Produce a list of facilities with more than 1000 slots booked. 
+-- Produce an output table consisting of facility id and total slots, 
+-- sorted by facility id.
+-- Expected Result is 5 rows.
+
+SELECT bookings.facid, SUM(slots) 
+AS "total_slots"
+FROM cd.bookings 
+GROUP BY bookings.facid
+HAVING SUM(slots) > 1000
+ORDER BY bookings.facid ASC;
